@@ -36,9 +36,9 @@
             
             <!-- Draws a diagonal line from (10,10) to (50,50)
        and moves it 100 pixels to the right. -->
-            <Line
+            <Line x:Name="wahadlo"
                 X1="0" Y1="0"
-                    X2="{Binding Path=point[0].Value}" Y2="{Binding Path=point[1].Value}"
+                    X2="{Binding Path=point[0]}" Y2="{Binding Path=point[1]}"
                     StrokeThickness="4"
                     Canvas.Left="150">
                 <Line.Stroke>
