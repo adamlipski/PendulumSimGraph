@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "qOTEWoiVbfqqwKS2Sh3aJJTafv1xOgBh/+wQUUUdueUe6rwJhfQuEG2jzatyg+/VLudMew1jSgH/VUgEvzPNXg==",
+  "success": true,
+  "projectFilePath": "F:\\C#\\Symulacje\\PendulumSimGraph\\PendulumSimGraph\\PendulumSimGraph.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sarny\\.nuget\\packages\\livecharts.wpf.netcore3\\0.9.7\\livecharts.wpf.netcore3.0.9.7.nupkg.sha512",
+    "C:\\Users\\sarny\\.nuget\\packages\\system.data.datasetextensions\\4.5.0\\system.data.datasetextensions.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

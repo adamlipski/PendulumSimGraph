@@ -1,0 +1,61 @@
+﻿<Window x:Class="PendulumSimGraph.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PendulumSimGraph"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="310" Width="500">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <TextBlock Text="Radius: r" TextAlignment="Left" Margin="5,0"></TextBlock>
+            <TextBox x:Name="txtbRadius" Margin="5"/>
+            <TextBlock Text="Teta: 0"></TextBlock>
+            <TextBox x:Name="txtbTeta" Margin="5"/>
+            <TextBlock Text="Omega: w"></TextBlock>
+            <TextBox x:Name="txtbOmega" Margin="5"/>
+            <TextBlock Text="Time step: dt"></TextBlock>
+            <TextBox x:Name="txtbdt" Margin="5"/>
+            <Button Content="Calculate" Margin="5"
+                    Click="Button_Click"></Button>
+            <TextBlock Text="X"/>
+            <TextBox x:Name="Xp"/>
+            <TextBlock Text="Y"/>
+            <TextBox x:Name="Yp"/>
+
+        </StackPanel>
+            <ListView Grid.Column="1" Margin="5">
+          
+        </ListView>
+        <Canvas x:Name="rysownik" Margin="5" Grid.Column="2" >
+            
+            <!-- Draws a diagonal line from (10,10) to (50,50)
+       and moves it 100 pixels to the right. -->
+            <Line
+                X1="0" Y1="0"
+                    X2="{Binding Path=point[0].Value}" Y2="{Binding Path=point[1].Value}"
+                    StrokeThickness="4"
+                    Canvas.Left="150">
+                <Line.Stroke>
+                    <RadialGradientBrush GradientOrigin="0.5,0.5" Center="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
+                        <RadialGradientBrush.GradientStops>
+                            <GradientStop Color="Red" Offset="0" />
+                            <GradientStop Color="Blue" Offset="0.25" />
+                        </RadialGradientBrush.GradientStops>
+                    </RadialGradientBrush>
+                </Line.Stroke>
+            </Line>
+
+            <!-- Draws a horizontal line from (10,60) to (150,60). -->
+            
+        </Canvas>
+        
+        
+
+    </Grid>
+</Window>
