@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -27,8 +28,12 @@ namespace PendulumSimGraph
         double x_p = 20;
         double y_p = 40;
         double[] points = { 10, 20 };
+        double omega, teta, t, dt, x, y, r, g;
+        int tetaDeg;
 
+        
 
+     
 
 
         ObservableCollection<string> point = new ObservableCollection<string>();
@@ -39,62 +44,42 @@ namespace PendulumSimGraph
             point.Add(stringTemp);
             point.Add(points[1].ToString());
             rysownik.DataContext = point;
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            //PendulumSim pendulum = new PendulumSim(
-            //    Convert.ToDouble(txtbOmega.Text),
-            //    Convert.ToDouble(txtbTeta.Text),
-            //    Convert.ToDouble(txtbdt.Text),
-            //    Convert.ToDouble(txtbRadius.Text));
-
-            double omega, teta, t, dt, x, y, r, g;
-
-
             r = 40;       //[m]
             g = 9.8f;    //[m/s^2]
-            dt = 0.01f;
+            dt = 0.02f;
 
             omega = 0.0f;
-            int tetaDeg = 45; // degrees
-
-            //teta = 4.0f;
-
-
-            //Converting degrees to radians
-
-            //teta2 = (float)((Math.PI / 180) * (float)tetaDeg);
+            tetaDeg = 45;
             teta = Math.PI / 180 * tetaDeg;
-
-            //Console.WriteLine($"Converstion from {tetaDeg} degrees to {teta2} radians");
-            //Console.WriteLine("Sin of 30 deg:" + Math.Sin(teta2));
-
-            for (t = 0; t < 10; t += dt)
-            {
-             
-
-                omega = (float)(omega + (g / r) * Math.Sin(teta) * dt);
-
-                teta = teta - omega * dt;
-
-
-
-                double angle = (teta * 180) / Math.PI;
-
-                x = (float)(r * Math.Sin(teta));
-                y = (float)(r * Math.Cos(teta));
-                Thread.Sleep(1);
-                wahadlo.X1 = x;
-                Thread.Sleep(1);
-                wahadlo.Y1 = y;
-                Thread.Sleep(1);
-
-
-
-            }    
+            t = 0;
+        }
+    
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            CompositionTarget.Rendering += StartAnimation;
+           
+          
 
         }
 
+        private void StartAnimation(object sender, EventArgs e)
+        {
+            
+            omega = (float)(omega + (g / r) * Math.Sin(teta) * dt);
+            teta = teta - omega * dt;
+
+            wahadlo.X2 = (float)(r * Math.Sin(teta));
+            wahadlo.Y2 = (float)(r * Math.Cos(teta));
+            t += dt;
+
+            if (t < 20)
+            {
+                StartAnimation(sender, e);
+            }
+            else
+            {
+                return;
+            }
+        }
     }
 }

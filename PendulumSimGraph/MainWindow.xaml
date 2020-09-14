@@ -38,7 +38,7 @@
        and moves it 100 pixels to the right. -->
             <Line x:Name="wahadlo"
                 X1="0" Y1="0"
-                    X2="{Binding Path=point[0]}" Y2="{Binding Path=point[1]}"
+                    X2="20" Y2="30"
                     StrokeThickness="4"
                     Canvas.Left="150">
                 <Line.Stroke>
