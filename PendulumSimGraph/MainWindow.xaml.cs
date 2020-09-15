@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -46,7 +47,7 @@ namespace PendulumSimGraph
             rysownik.DataContext = point;
             r = 40;       //[m]
             g = 9.8f;    //[m/s^2]
-            dt = 0.02f;
+            dt = 0.04f;
 
             omega = 0.0f;
             tetaDeg = 45;
@@ -71,14 +72,15 @@ namespace PendulumSimGraph
             wahadlo.X2 = (float)(r * Math.Sin(teta));
             wahadlo.Y2 = (float)(r * Math.Cos(teta));
             t += dt;
+            txtbdt.Text = t.ToString();
 
-            if (t < 20)
+            if (false)
             {
                 StartAnimation(sender, e);
             }
             else
             {
-                return;
+                Stopwatch.StartNew();
             }
         }
     }
