@@ -45,6 +45,7 @@ namespace PendulumSimGraph
             point.Add(stringTemp);
             point.Add(points[1].ToString());
             rysownik.DataContext = point;
+
             r = 40;       //[m]
             g = 9.8f;    //[m/s^2]
             dt = 0.04f;
@@ -53,6 +54,9 @@ namespace PendulumSimGraph
             tetaDeg = 45;
             teta = Math.PI / 180 * tetaDeg;
             t = 0;
+            
+            Canvas.SetLeft(Mass, Canvas.GetLeft(wahadlo) + wahadlo.X2 - Mass.ActualWidth / 2);
+            Canvas.SetTop(Mass, wahadlo.Y2 - Mass.ActualHeight / 2);
         }
     
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -71,6 +75,8 @@ namespace PendulumSimGraph
 
             wahadlo.X2 = (float)(r * Math.Sin(teta));
             wahadlo.Y2 = (float)(r * Math.Cos(teta));
+            Canvas.SetLeft(Mass, Canvas.GetLeft(wahadlo) + wahadlo.X2 - Mass.ActualWidth/2);
+            Canvas.SetTop(Mass, wahadlo.Y2 - Mass.ActualHeight/2);
             t += dt;
             txtbdt.Text = t.ToString();
 

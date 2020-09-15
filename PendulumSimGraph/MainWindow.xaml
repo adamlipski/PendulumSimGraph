@@ -51,6 +51,15 @@
                 </Line.Stroke>
             </Line>
 
+            <Ellipse x:Name="Mass"
+                     Width="20"
+                     Height="20"
+                     Canvas.Left="170"
+                     Canvas.Top="30"
+                     Fill="Red">
+                
+            </Ellipse>
+
             <!-- Draws a horizontal line from (10,60) to (150,60). -->
             
         </Canvas>
