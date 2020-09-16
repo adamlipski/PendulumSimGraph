@@ -13,15 +13,15 @@
             <ColumnDefinition Width="Auto"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0">
-            <TextBlock Text="Radius: r" TextAlignment="Left" Margin="5,0"></TextBlock>
-            <TextBox x:Name="txtbRadius" Margin="5"/>
+            <TextBlock Text="Length: r" TextAlignment="Left" Margin="5,0"></TextBlock>
+            <TextBox x:Name="txtbRadius" Text="40" Margin="5"/>
             <TextBlock Text="Teta: 0"></TextBlock>
-            <TextBox x:Name="txtbTeta" Margin="5"/>
+            <TextBox x:Name="txtbTeta" Text="45" Margin="5"/>
             <TextBlock Text="Omega: w"></TextBlock>
             <TextBox x:Name="txtbOmega" Margin="5"/>
-            <TextBlock Text="Time step: dt"></TextBlock>
-            <TextBox x:Name="txtbdt" Margin="5"/>
-            <Button Content="Calculate" Margin="5"
+            <TextBlock Text="Time:"></TextBlock>
+            <TextBox x:Name="txtbTime" Margin="5"/>
+            <Button Content="Start" Margin="5"
                     Click="Button_Click"></Button>
             <TextBlock Text="X"/>
             <TextBox x:Name="Xp"/>
@@ -60,8 +60,24 @@
                 
             </Ellipse>
 
-            <!-- Draws a horizontal line from (10,60) to (150,60). -->
-            
+            <!-- Draw velocity. -->
+
+            <Line x:Name="V_x" 
+                  X1="{Binding ElementName=wahadlo, Path=X2}"
+                  Y1="{Binding ElementName=wahadlo, Path=Y2}"
+                  X2="30"
+                  Y2="100"
+                  Canvas.Left="150">
+                <Line.Stroke>
+                    <RadialGradientBrush GradientOrigin="0.5,0.5" Center="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
+                        <RadialGradientBrush.GradientStops>
+                            <GradientStop Color="Red" Offset="0" />
+                            <GradientStop Color="Blue" Offset="0.25" />
+                        </RadialGradientBrush.GradientStops>
+                    </RadialGradientBrush>
+                </Line.Stroke>
+            </Line>
+
         </Canvas>
         
         

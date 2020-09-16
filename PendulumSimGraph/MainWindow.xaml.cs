@@ -31,24 +31,22 @@ namespace PendulumSimGraph
         double[] points = { 10, 20 };
         double omega, teta, t, dt, x, y, r, g;
         int tetaDeg;
-
+        bool animationRunning = false;
+        bool setValues = false;
         
 
      
 
 
-        ObservableCollection<string> point = new ObservableCollection<string>();
+       
         public MainWindow()
         {
             InitializeComponent();
-            var stringTemp = points[0].ToString();
-            point.Add(stringTemp);
-            point.Add(points[1].ToString());
-            rysownik.DataContext = point;
+         
 
             r = 40;       //[m]
-            g = 9.8f;    //[m/s^2]
-            dt = 0.04f;
+            g = 9.81f;    //[m/s^2]
+            dt = 0.02f;
 
             omega = 0.0f;
             tetaDeg = 45;
@@ -57,15 +55,42 @@ namespace PendulumSimGraph
             
             Canvas.SetLeft(Mass, Canvas.GetLeft(wahadlo) + wahadlo.X2 - Mass.ActualWidth / 2);
             Canvas.SetTop(Mass, wahadlo.Y2 - Mass.ActualHeight / 2);
+
+           
         }
     
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            CompositionTarget.Rendering += StartAnimation;
+
+            if(setValues == false)
+            {
+                r = Convert.ToDouble(txtbRadius.Text);
+                tetaDeg = Convert.ToInt32(txtbTeta.Text);
+                teta = Math.PI / 180 * tetaDeg;
+
+                setValues = true;
+
+            }
+
+            
+            
+
+            if(animationRunning==false)
+            {
+                CompositionTarget.Rendering += StartAnimation;
+                animationRunning = true;
+
+            }
+            else
+            {
+                CompositionTarget.Rendering -= StartAnimation;
+                animationRunning = false;
+            }
            
           
 
         }
+   
 
         private void StartAnimation(object sender, EventArgs e)
         {
@@ -74,11 +99,15 @@ namespace PendulumSimGraph
             teta = teta - omega * dt;
 
             wahadlo.X2 = (float)(r * Math.Sin(teta));
+            
             wahadlo.Y2 = (float)(r * Math.Cos(teta));
+            Xp.Text = wahadlo.X2.ToString();
+            Yp.Text = wahadlo.Y2.ToString();
             Canvas.SetLeft(Mass, Canvas.GetLeft(wahadlo) + wahadlo.X2 - Mass.ActualWidth/2);
             Canvas.SetTop(Mass, wahadlo.Y2 - Mass.ActualHeight/2);
             t += dt;
-            txtbdt.Text = t.ToString();
+            txtbTime.Text = t.ToString();
+            txtbOmega.Text = omega.ToString();
 
             if (false)
             {
