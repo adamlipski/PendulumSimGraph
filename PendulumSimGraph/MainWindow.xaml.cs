@@ -33,6 +33,9 @@ namespace PendulumSimGraph
         int tetaDeg;
         bool animationRunning = false;
         bool setValues = false;
+        double Vlin;
+        double Vx;
+        double Vy;
         
 
      
@@ -105,6 +108,15 @@ namespace PendulumSimGraph
             Yp.Text = wahadlo.Y2.ToString();
             Canvas.SetLeft(Mass, Canvas.GetLeft(wahadlo) + wahadlo.X2 - Mass.ActualWidth/2);
             Canvas.SetTop(Mass, wahadlo.Y2 - Mass.ActualHeight/2);
+
+            Vlin = omega * r;
+
+            Vx = Math.Cos(teta) * Vlin;
+            Vy = Math.Sin(teta) * Vlin;
+           // Canvas.SetLeft(Vxy, Canvas.GetLeft(wahadlo) + wahadlo.X2);
+            Vxy.X2 = - Vx + wahadlo.X2;
+            Vxy.Y2 = Vy + wahadlo.Y2;
+
             t += dt;
             txtbTime.Text = t.ToString();
             txtbOmega.Text = omega.ToString();
