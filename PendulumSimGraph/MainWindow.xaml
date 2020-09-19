@@ -5,14 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PendulumSimGraph"
         mc:Ignorable="d"
-        Title="MainWindow" Height="310" Width="500">
+        Title="MainWindow" Height="320" Width="500">
+    
+        
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"></ColumnDefinition>
-            <ColumnDefinition Width="100"/>
+
             <ColumnDefinition Width="Auto"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel x:Name="stcPanelData" Grid.Column="0" Grid.RowSpan="2">
             <TextBlock Text="Length: r" TextAlignment="Left" Margin="5,0"></TextBlock>
             <TextBox x:Name="txtbRadius" Text="40" Margin="5"/>
             <TextBlock Text="Teta: 0"></TextBlock>
@@ -29,18 +36,16 @@
             <TextBox x:Name="Yp"/>
 
         </StackPanel>
-            <ListView Grid.Column="1" Margin="5">
-          
-        </ListView>
-        <Canvas x:Name="rysownik" Margin="5" Grid.Column="2" >
-            
+    
+            <Canvas x:Name="rysownik" Margin="5" Grid.Column="1" Grid.Row="0">
+
             <!-- Draws a diagonal line from (10,10) to (50,50)
        and moves it 100 pixels to the right. -->
             <Line x:Name="wahadlo"
                 X1="0" Y1="0"
-                    X2="20" Y2="30"
+                    X2="30" Y2="40"
                     StrokeThickness="4"
-                    Canvas.Left="150">
+                    Canvas.Left="200">
                 <Line.Stroke>
                     <RadialGradientBrush GradientOrigin="0.5,0.5" Center="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
                         <RadialGradientBrush.GradientStops>
@@ -54,31 +59,34 @@
             <Ellipse x:Name="Mass"
                      Width="20"
                      Height="20"
-                     Canvas.Left="170"
+                     Canvas.Left="{Binding ElementName=wahadlo}"
                      Canvas.Top="30"
                      Fill="Red">
-                
+
             </Ellipse>
 
             <!-- Draw velocity. -->
 
-            <Line x:Name="Vxy" 
+            <Line x:Name="Vxy" Visibility="Hidden"
                   X1="{Binding ElementName=wahadlo, Path=X2}"
                   Y1="{Binding ElementName=wahadlo, Path=Y2}"
                   X2="30"
                   Y2="100"
-                  Canvas.Left="150"
+                  
+                  Canvas.Left="200"
                   >
                 <Line.Stroke>
                     <SolidColorBrush Color="DarkGreen">
-                        
+
                     </SolidColorBrush>
                 </Line.Stroke>
             </Line>
 
-        </Canvas>
-        
-        
+            </Canvas>
+
+
+
 
     </Grid>
+   
 </Window>

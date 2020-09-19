@@ -42,3 +42,4 @@ D:\Nauka\Symulacje\WahadloWykres\PendulumSimGraph\obj\Debug\netcoreapp3.1\Pendul
 D:\Nauka\Symulacje\WahadloWykres\PendulumSimGraph\obj\Debug\netcoreapp3.1\PendulumSimGraph.csproj.CoreCompileInputs.cache
 D:\Nauka\Symulacje\WahadloWykres\PendulumSimGraph\obj\Debug\netcoreapp3.1\PendulumSimGraph.csproj.CopyComplete
 D:\Nauka\Symulacje\WahadloWykres\PendulumSimGraph\obj\Debug\netcoreapp3.1\PendulumSimGraph.genruntimeconfig.cache
+D:\Nauka\Symulacje\WahadloWykres\PendulumSimGraph\obj\Debug\netcoreapp3.1\PointShapeLineExample.baml

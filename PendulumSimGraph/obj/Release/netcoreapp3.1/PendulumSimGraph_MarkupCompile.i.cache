@@ -1,20 +1,20 @@
 ﻿PendulumSimGraph
-
+1.0.0.0
 
 winexe
 C#
 .cs
-D:\Nauka\Symulacje\WahadloWykres\PendulumSimGraph\obj\Debug\netcoreapp3.1\
+D:\Nauka\Symulacje\WahadloWykres\PendulumSimGraph\obj\Release\netcoreapp3.1\
 PendulumSimGraph
 none
 false
-TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
+TRACE;RELEASE;NETCOREAPP;NETCOREAPP3_1
 D:\Nauka\Symulacje\WahadloWykres\PendulumSimGraph\App.xaml
 21034279003
 
-51865755954
+72097267564
 1941218751173
 MainWindow.xaml;PointShapeLineExample.xaml;
 
-False
+True
 

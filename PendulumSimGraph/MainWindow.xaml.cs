@@ -25,17 +25,15 @@ namespace PendulumSimGraph
     /// </summary>
     public partial class MainWindow : Window
     {
-
-        double x_p = 20;
-        double y_p = 40;
-        double[] points = { 10, 20 };
-        double omega, teta, t, dt, x, y, r, g;
+        
+        double omega, teta, t, dt, r, g;
         int tetaDeg;
         bool animationRunning = false;
         bool setValues = false;
         double Vlin;
         double Vx;
         double Vy;
+        ObservableCollection<double> timeList = new ObservableCollection<double>();
         
 
      
@@ -80,6 +78,7 @@ namespace PendulumSimGraph
 
             if(animationRunning==false)
             {
+                Vxy.Visibility = Visibility.Visible;
                 CompositionTarget.Rendering += StartAnimation;
                 animationRunning = true;
 
@@ -97,6 +96,7 @@ namespace PendulumSimGraph
 
         private void StartAnimation(object sender, EventArgs e)
         {
+            timeList.Add(t);
             
             omega = (float)(omega + (g / r) * Math.Sin(teta) * dt);
             teta = teta - omega * dt;
