@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PendulumSimGraph.UserControls;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -26,17 +27,18 @@ namespace PendulumSimGraph
     public partial class MainWindow : Window
     {
         
-        double omega, teta, t, dt, r, g;
+        double teta, t, dt, r, g;
+        double omega;
         int tetaDeg;
+        int tLimit;
         bool animationRunning = false;
         bool setValues = false;
         double Vlin;
         double Vx;
         double Vy;
         ObservableCollection<double> timeList = new ObservableCollection<double>();
-        
 
-     
+        PointLineGraph graph = new PointLineGraph();
 
 
        
@@ -48,6 +50,7 @@ namespace PendulumSimGraph
             r = 40;       //[m]
             g = 9.81f;    //[m/s^2]
             dt = 0.02f;
+            tLimit = 1;
 
             omega = 0.0f;
             tetaDeg = 45;
@@ -97,7 +100,7 @@ namespace PendulumSimGraph
         private void StartAnimation(object sender, EventArgs e)
         {
             timeList.Add(t);
-            
+                       
             omega = (float)(omega + (g / r) * Math.Sin(teta) * dt);
             teta = teta - omega * dt;
 
@@ -118,6 +121,8 @@ namespace PendulumSimGraph
             Vxy.Y2 = Vy + wahadlo.Y2;
 
             t += dt;
+            graph.Read(omega, t);
+
             txtbTime.Text = t.ToString();
             txtbOmega.Text = omega.ToString();
 
