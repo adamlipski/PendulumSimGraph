@@ -3,12 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:uc="clr-namespace:PendulumSimGraph.UserControls"
+
         xmlns:local="clr-namespace:PendulumSimGraph"
+        xmlns:uc="clr-namespace:PendulumSimGraph.UserControls"
+ 
         mc:Ignorable="d"
         Title="MainWindow" Height="320" Width="500">
-    
-        
+
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"></ColumnDefinition>
@@ -37,8 +39,8 @@
             <TextBox x:Name="Yp"/>
 
         </StackPanel>
-    
-            <Canvas x:Name="rysownik" Margin="5" Grid.Column="1" Grid.Row="0">
+
+        <Canvas x:Name="rysownik" Margin="5" Grid.Column="1" Grid.Row="0">
 
             <!-- Draws a diagonal line from (10,10) to (50,50)
        and moves it 100 pixels to the right. -->
@@ -83,14 +85,12 @@
                 </Line.Stroke>
             </Line>
 
-            </Canvas>
-
-        <uc:PointLineGraph Grid.Column="1" Grid.Row="1" Height="100" Width="300"></uc:PointLineGraph>
-
-
-
-
-
+        </Canvas>
+        <Grid Grid.Row="1" Grid.Column="1" Width="300">
+            <Canvas x:Name="drawGraph"></Canvas>
+            
+        </Grid>
+       
     </Grid>
-   
+
 </Window>

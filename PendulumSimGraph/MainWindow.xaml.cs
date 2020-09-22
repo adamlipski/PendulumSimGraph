@@ -36,12 +36,14 @@ namespace PendulumSimGraph
         double Vlin;
         double Vx;
         double Vy;
+        
         ObservableCollection<double> timeList = new ObservableCollection<double>();
+        Point point0 = new Point(0, 0);
+        Point point1 = new Point(0,0);
 
         PointLineGraph graph = new PointLineGraph();
+        private Path myPath;
 
-
-       
         public MainWindow()
         {
             InitializeComponent();
@@ -99,8 +101,10 @@ namespace PendulumSimGraph
 
         private void StartAnimation(object sender, EventArgs e)
         {
-            timeList.Add(t);
-                       
+            //timeList.Add(t);
+            AddNewPath((omega * 100), (t*10));
+            
+
             omega = (float)(omega + (g / r) * Math.Sin(teta) * dt);
             teta = teta - omega * dt;
 
@@ -121,10 +125,14 @@ namespace PendulumSimGraph
             Vxy.Y2 = Vy + wahadlo.Y2;
 
             t += dt;
-            graph.Read(omega, t);
+           
 
             txtbTime.Text = t.ToString();
             txtbOmega.Text = omega.ToString();
+
+
+           
+
 
             if (false)
             {
@@ -134,6 +142,28 @@ namespace PendulumSimGraph
             {
                 Stopwatch.StartNew();
             }
+        }
+
+        private void AddNewPath(double omega, double t)
+        {
+            point0 = point1;
+            //Point tempPoint = new Point( t, omega);
+            point1 = new Point (t, omega);
+
+            
+
+                myPath = new Path();
+            myPath.Stroke = System.Windows.Media.Brushes.Black;
+            myPath.Fill = System.Windows.Media.Brushes.MediumSlateBlue;
+            myPath.StrokeThickness = 2;
+            myPath.HorizontalAlignment = HorizontalAlignment.Left;
+            myPath.VerticalAlignment = VerticalAlignment.Center;
+            LineGeometry lineGeometry = new LineGeometry(point0, point1);
+                myPath.Data = lineGeometry;
+                drawGraph.Children.Add(myPath);
+           
+
+            
         }
     }
 }
