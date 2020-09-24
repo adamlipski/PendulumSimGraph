@@ -20,4 +20,5 @@ D:\Nauka\Symulacje\WahadloWykres\PendulumSimGraph\obj\Release\netcoreapp3.1\Pend
 D:\Nauka\Symulacje\WahadloWykres\PendulumSimGraph\obj\Release\netcoreapp3.1\PendulumSimGraph.pdb
 D:\Nauka\Symulacje\WahadloWykres\PendulumSimGraph\obj\Release\netcoreapp3.1\PendulumSimGraph.genruntimeconfig.cache
 D:\Nauka\Symulacje\WahadloWykres\PendulumSimGraph\obj\Release\netcoreapp3.1\PendulumSimGraph.csprojAssemblyReference.cache
-D:\Nauka\Symulacje\WahadloWykres\PendulumSimGraph\obj\Release\netcoreapp3.1\PointShapeLineExample.baml
+D:\Nauka\Symulacje\WahadloWykres\PendulumSimGraph\obj\Release\netcoreapp3.1\UserControls\PointLineGraph.g.cs
+D:\Nauka\Symulacje\WahadloWykres\PendulumSimGraph\obj\Release\netcoreapp3.1\UserControls\PointLineGraph.baml

@@ -10,11 +10,11 @@ none
 false
 TRACE;RELEASE;NETCOREAPP;NETCOREAPP3_1
 D:\Nauka\Symulacje\WahadloWykres\PendulumSimGraph\App.xaml
-21034279003
+2-1019278766
 
-72097267564
+8853370757
 1941218751173
-MainWindow.xaml;PointShapeLineExample.xaml;
+MainWindow.xaml;UserControls\PointLineGraph.xaml;
 
-True
+False
 
